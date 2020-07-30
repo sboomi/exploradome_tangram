@@ -1,6 +1,7 @@
 # Exploradome_tangram
 Tangram form detection from live video stream
 
+
 ## Table Of Contents
 -  [Installation and Usage](#Installation-and-Usage)
 -  [Usage](#Usage)
@@ -17,10 +18,17 @@ Tangram form detection from live video stream
 pip install 
 ```
 
-## Usage
+## Approach taken
 
-```python
-```
+Find the best accuracy for the model (CNN with Tensorflow) - see the Google Sheet
+
+## In progress
+
+Test different model: CNN with Tensorflow 
+
+## Results or improvement strategy
+
+see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
 
 ## Configuration
 
@@ -33,6 +41,7 @@ pip install
 │    └── video_to_img    - here's the file of raw image extraction of video file.
 │    └── WIN_20200727_16_30_12_Pro.mp4    - here's the tangram video for the creation of the datasets.
 │
+│
 ├──  modules        - this file contains the modules.
 │    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two.
 │ 
@@ -41,36 +50,38 @@ pip install
 │   └── 
 │   └──
 │
-├── collab Notebooks - this folder contains any model of your project.
-│   └── example_model.py
-│   └── build.py
-│   └── build.py
-│   └── build.py
-│   └── lr_scheduler.py
+│ 
+├── collab Notebooks - this folder contains any model and preprocessing of your project.
+│   └── trigram_decoupage.ipynb
+│   └── trigram_model_test_Bintou_Jasmine.ipynb
+│   └── trigram_model_test_Laura.ipynb
+│   └── trigram_model_test_Shadi.ipynb
+│   └── trigram_model_test_Jason.ipynb
+│   └── trigram_preprocessing.ipynb
+│   └── video_processing.ipynb
 │   
 └── main.py					- this foler contains unit test of your project.
 ```
 ### Dataset
+![image](https://drive.google.com/file/d/1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS/view?usp=sharing)
+
 ```
-├──  test
-│    └── defaults.py  - here's the default config file.
-│
-│
-├──  train  
-│    └── train_mnist_softmax.yml  - here's the specific config file for specific model or dataset.
-│ 
-│
+
 ├──  validation  
-│    └── datasets  - here's the datasets folder that is responsible for all data handling.
-│    └── transforms  - here's the data preprocess folder that is responsible for all data augmentation.
-│    └── build.py  		   - here's the file to make dataloader.
-│    └── collate_batch.py   - here's the file that is responsible for merges a list of samples to form a mini-batch.
-│
-│
-├──  video_to_img
-│   ├── trainer.py     - this file contains the train loops.
-│   └── inference.py   - this file contains the inference process.
-└── 
+│    └── bateau  
+│    └── bol  
+│    └── chat  		   
+│    └── coeur   
+│    └── cygne
+│    └── lapin
+│    └── maison
+│    └── marteau
+│    └── montagne
+│    └── pont
+│    └── renard
+│    └── tortue
+│   
+└──
 ```
 
 ### Trigram Preprocessing
