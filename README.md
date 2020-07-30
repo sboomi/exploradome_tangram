@@ -28,7 +28,7 @@ Test different model: CNN with Tensorflow
 
 ## Results or improvement strategy
 
-see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
+see the Google Sheet: [link](https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing)
 
 ## Configuration
 
