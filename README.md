@@ -11,7 +11,7 @@ Tangram form detection from live video stream
 ## Installation and Usage
 
 - [Tensorflow](https://www.tensorflow.org/) (An open source deep learning platform) 
-- [OpenCV] (https://opencv.org/) (Open Computer Vision Library)
+- [OpenCV](https://opencv.org/) (Open Computer Vision Library)
 
 ```bash
 pip install 
