@@ -63,7 +63,7 @@ see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 └── main.py					- this foler contains unit test of your project.
 ```
 ### Dataset
-![image](https://drive.google.com/file/d/1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
 
 ```
 
