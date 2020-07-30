@@ -27,10 +27,10 @@ Find the best accuracy for the model (CNN with Tensorflow) - see the Google Shee
 Test different model: 
 - CNN with Tensorflow custom
 - CNN with Tensorflow with transfert learning
-  > mobilenetv2
-  > NASMobile
-  > RESNET (distillation)
-  > VGG16 (distillation)
+  - [x] mobilenetv2
+  - [ ] NASMobile
+  - [ ] RESNET (distillation)
+  - [ ] VGG16 (distillation)
 
 Test model on collab
 Test model on local 
