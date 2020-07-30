@@ -2,11 +2,11 @@
 Tangram form detection from live video stream
 
 ## Table Of Contents
--  [Installation and Usage](##Installation and Usage)
--  [Usage](##Usage)
--  [Configuration](##Configuration)
+-  [Installation and Usage](#Installation and Usage)
+-  [Usage](#Usage)
+-  [Configuration](#Configuration)
 -  [In Details](#in-details)
--  [Team](##Team)
+-  [Team](#Team)
 
 ## Installation and Usage
 
@@ -24,6 +24,7 @@ pip install
 
 ## Configuration
 
+## In Details
 
 ## Team
 
