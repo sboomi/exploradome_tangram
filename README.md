@@ -31,6 +31,7 @@ Test different model:
   - [ ] NASMobile
   - [ ] RESNET (distillation)
   - [ ] VGG16 (distillation)
+  - [ ] InceptionV3
 
 Test model on collab
 Test model on local 
@@ -69,7 +70,7 @@ See the Google Sheet: [link](https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8
 │   └── trigram_preprocessing.ipynb
 │   └── video_processing.ipynb
 │   
-└── main.py					- this foler contains unit test of your project.
+└── main.py	- this foler contains unit test of your project.
 ```
 ### Dataset
 ![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
@@ -115,6 +116,7 @@ To download the file:
 - video_to_img (with all image of video file): [video to img zip](https://drive.google.com/file/d/13XPugnAZIxIP25GGkvKFjiDym-c7eMGL/view?usp=sharing)
 
 ### Trigram Preprocessing
+
 
 ### Trigram Model
 
