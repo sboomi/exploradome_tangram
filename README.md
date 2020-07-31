@@ -15,7 +15,8 @@ Tangram form detection from live video stream
 - [OpenCV](https://opencv.org/) (Open Computer Vision Library)
 
 ```bash
-pip install 
+pip install tensorflow
+pip install opencv
 ```
 
 ## Approach taken
@@ -29,9 +30,6 @@ Test different model:
 - CNN with Tensorflow with transfert learning
   - [x] mobilenetv2
   - [ ] NASMobile
-  - [ ] RESNET (distillation)
-  - [ ] VGG16 (distillation)
-  - [ ] InceptionV3
   - [ ] InceptionV3 + L2
 
 Test model on collab
@@ -46,18 +44,16 @@ See the Google Sheet: [link](https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8
 ## In Details
 ```
 ├──  data  
-│    └── data  - here's the image classification datasets (from video_to_img).
-│    └── train - here's the file to train dataset.
-│    └── validation  		 - here's the file to validation dataset.
-│    └── video_to_img    - here's the file of raw image extraction of video file.
-│    └── WIN_20200727_16_30_12_Pro.mp4    - here's the tangram video for the creation of the datasets.
+│    └── data  - here's the image classification datasets.
+│    └── test_full   - here's the file to test dataset.
+│    └── train_full  - here's the file to train dataset.
 │
 │
-├──  modules        - this file contains the modules.
+├──  modules - this file contains the modules.
 │    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two.
 │ 
 │
-├── saved_model     - this folder contains any customed layers of your project.
+├── saved_model - this folder contains any customed layers of your project.
 │   └── 
 │   └──
 │
@@ -79,9 +75,17 @@ See the Google Sheet: [link](https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8
 The dataset has the following directory structure:
 
 ```
-├──  train  
-│    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
-│    └── bol: [bol.1.jpg, bol.2.jpg, bom.3.jpg ....]    
+data/data
+├──  bateau  
+│    └── blur: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
+│    └── bright: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
+│        └── [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]   
+│        
+├──  bol  
+│    └── blur: [bol.1.jpg, bol.2.jpg, bol.3.jpg ....]  
+│    └── bright: [bol.1.jpg, bol.2.jpg, bol.3.jpg ....]  
+│        └── [bol.1.jpg, bol.2.jpg, bol.3.jpg ....]  
+│
 │    └── chat  ... 		   
 │    └── coeur ...  
 │    └── cygne ...
@@ -93,20 +97,6 @@ The dataset has the following directory structure:
 │    └── renard ...
 │    └── tortue ...
 │ 
-│ 
-├──  validation  
-│    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
-│    └── bol: [bol.1.jpg, bol.2.jpg, bom.3.jpg ....]    
-│    └── chat  ... 		   
-│    └── coeur ...  
-│    └── cygne ...
-│    └── lapin ...
-│    └── maison ...
-│    └── marteau ...
-│    └── montagne ...
-│    └── pont ...
-│    └── renard ...
-│    └── tortue ...
 │   
 └── 
 ```
