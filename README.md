@@ -32,6 +32,7 @@ Test different model:
   - [ ] RESNET (distillation)
   - [ ] VGG16 (distillation)
   - [ ] InceptionV3
+  - [ ] InceptionV3 + L2
 
 Test model on collab
 Test model on local 
