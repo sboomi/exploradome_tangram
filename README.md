@@ -35,11 +35,11 @@ see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 
 ## In Details
 ```
-├──  data  
-│    └── train_full  - here's the image classification datasets for the train and validation with all images (unbalanced).
-│    └── train_balanced - here's the image classification datasets for the train and validation with 140 images for each categories (balanced).
-│    └── test_full  		- here's the image classification datasets for the test with all images (unbalanced).
-│    └── test_balanced  - here's the image classification datasets for the test with 28 images for each categories (balanced) - 20% of train_balanced dataset.
+├──  data  - here's the image classification datasets
+│    └── train_full  - for the train and validation with all images (unbalanced).
+│    └── train_balanced - for the train and validation with 140 images for each categories (balanced).
+│    └── test_full  		- for the test with all images (unbalanced).
+│    └── test_balanced  - for the test with 28 images for each categories (balanced) - 20% of train_balanced dataset.
 │   
 │
 │
