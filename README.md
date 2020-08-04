@@ -43,25 +43,20 @@ see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 │   
 │
 │
-├──  modules        - this file contains the modules.
-│    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two.
-│ 
+├──  modules  - this file contains the modules.
+│    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two, predict 
+│                                  => output with pred of each categorie.
 │
-├── saved_model     - this folder contains any customed layers of your project.
+├── saved_model  - this folder contains any customed layers of your project.
 │   └── 
 │   └──
 │
 │ 
-├── collab Notebooks - this folder contains any model and preprocessing of your project.
-│   └── trigram_decoupage.ipynb
-│   └── trigram_model_test_Bintou_Jasmine.ipynb
-│   └── trigram_model_test_Laura.ipynb
-│   └── trigram_model_test_Shadi.ipynb
-│   └── trigram_model_test_Jason.ipynb
-│   └── trigram_preprocessing.ipynb
-│   └── video_processing.ipynb
+├── collab Notebooks  - this folder contains any model and preprocessing of your project.
+│   └── trigram_model_v1.ipynb
+│   └── trigram_model_v2.ipynb
 │   
-└── main.py					- this foler contains unit test of your project.
+└── main.py  - this foler contains unit test of your project.
 ```
 
 ### Dataset
