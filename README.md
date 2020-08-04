@@ -111,13 +111,13 @@ for the test with 28 images for each categories (balanced dataset) - 20% of trai
 
 ### Trigram Preprocessing
 Data Augmentation:
-- contrast changes
-- blurring (applied after contrast change)
+- Contrast changes
+- Blurring (applied after contrast change)
 => already in folder train_full and test_full
 
 ImageDataGenerator with TensorFlow:
-- rescale: normalisation - Rescale 1./255 is to transform every pixel value from range [0,255] -> [0,1]
-- split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
+- Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
+- Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
 
 ### Trigram Model
