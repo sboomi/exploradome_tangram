@@ -110,12 +110,12 @@ for the test with all images (unbalanced dataset)
 for the test with 28 images for each categories (balanced dataset) - 20% of train_balanced dataset
 
 ### Trigram Preprocessing
-Data Augmentation:
+Data Augmentation (applied on dataset):
 - Contrast changes
 - Blurring (applied after contrast change)
 => already in folder train_full and test_full
 
-ImageDataGenerator with TensorFlow:
+ImageDataGenerator with TensorFlow (applied on model):
 - Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
 - Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
