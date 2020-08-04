@@ -48,8 +48,8 @@ See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 │                                  => output with pred of each categorie.
 │
 ├── saved_model  - this folder contains any customed layers of your project.
-│   └── 
-│   └──
+│   └── tangram_mobilenetv2.h5
+│   └── tangram_inceptionv3.h5
 │
 │ 
 ├── collab Notebooks  - this folder contains any model and preprocessing of your project.
