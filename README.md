@@ -1,7 +1,6 @@
 # Exploradome_tangram
 Tangram form detection from live video stream
 
-
 ## Table Of Contents
 -  [Installation and Usage](#Installation-and-Usage)
 -  [Usage](#Usage)
@@ -20,13 +19,13 @@ pip install opencv-python tensorflow
 
 ## Approach taken
 
-Find the best accuracy for the model (CNN with Tensorflow) - see the Google Sheet
+Find the best accuracy with transfert learning model (CNN with Tensorflow) - see the Google Sheet
 
 ## In progress
 
 Tested so far:
 * MobileNet
-* InceptionV3
+* InceptionV3 + L2
 
 ## Results or improvement strategy
 
@@ -37,11 +36,11 @@ see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 ## In Details
 ```
 ├──  data  
-│    └── data  - here's the image classification datasets (from video_to_img).
-│    └── train - here's the file to train dataset.
-│    └── validation  		 - here's the file to validation dataset.
-│    └── video_to_img    - here's the file of raw image extraction of video file.
-│    └── WIN_20200727_16_30_12_Pro.mp4    - here's the tangram video for the creation of the datasets.
+│    └── train_full  - here's the image classification datasets for the train and validation with all images (unbalanced).
+│    └── train_balanced - here's the image classification datasets for the train and validation with 140 images for each categories (balanced).
+│    └── test_full  		- here's the image classification datasets for the test with all images (unbalanced).
+│    └── test_balanced  - here's the image classification datasets for the test with 28 images for each categories (balanced) - 20% of train_balanced dataset.
+│   
 │
 │
 ├──  modules        - this file contains the modules.
@@ -102,10 +101,10 @@ The dataset has the following directory structure:
 └── 
 ```
 To download the file:
-- train_full: [train_full](https://drive.google.com/file/d/18RoZgzSzTE6nzHCzzMuDl9h4RktS3rNo/view?usp=sharing)
-- train_balanced: [train_balanced](https://drive.google.com/file/d/1V_rKMpjhHeJHRY0YcShYBZeun1uTz_G0/view?usp=sharing)
-- test_full: [test_full](https://drive.google.com/file/d/15EB3UGwrMkUzZvJIlf6uxeXYeDUtFhXf/view?usp=sharing)
-- test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
+- data: [data zip](https://drive.google.com/file/d/1Eavrsk72iZeJFiv3NBnOkDxgs2WDF4Ow/view?usp=sharing)
+- train: [train zip](https://drive.google.com/file/d/1ZjOI81YRjdcNwF8i6gxLMC1UG02nu2QS/view?usp=sharing)
+- validation: [validation zip](https://drive.google.com/file/d/1oCzg1-qK1jKki0bnahJYu7XU5tUbTB_b/view?usp=sharing)
+- video_to_img (with all image of video file): [video to img zip](https://drive.google.com/file/d/13XPugnAZIxIP25GGkvKFjiDym-c7eMGL/view?usp=sharing)
 
 ### Trigram Preprocessing
 
