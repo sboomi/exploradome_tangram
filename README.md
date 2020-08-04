@@ -56,7 +56,7 @@ See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 │   └── trigram_model_v1.ipynb
 │   └── trigram_model_v2.ipynb
 │   
-└── main.py  - this foler contains unit test of your project.
+└──
 ```
 
 ### Dataset
@@ -98,11 +98,27 @@ The dataset has the following directory structure:
 ```
 To download the file:
 - train_full: [train_full](https://drive.google.com/file/d/18RoZgzSzTE6nzHCzzMuDl9h4RktS3rNo/view?usp=sharing)
+for the train and validation with all images (unbalanced dataset)
+
 - train_balanced: [train_balanced](https://drive.google.com/file/d/1V_rKMpjhHeJHRY0YcShYBZeun1uTz_G0/view?usp=sharing)
+for the train and validation with 140 images for each categories (balanced dataset)
+
 - test_full: [test_full](https://drive.google.com/file/d/15EB3UGwrMkUzZvJIlf6uxeXYeDUtFhXf/view?usp=sharing)
+for the test with all images (unbalanced dataset)
+
 - test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
+for the test with 28 images for each categories (balanced dataset) - 20% of train_balanced dataset
 
 ### Trigram Preprocessing
+Data Augmentation:
+- contrast changes
+- blurring (applied after contrast change)
+=> already in folder train_full and test_full
+
+ImageDataGenerator with TensorFlow:
+- rescale: normalisation - Rescale 1./255 is to transform every pixel value from range [0,255] -> [0,1]
+- split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
+
 
 ### Trigram Model
 
