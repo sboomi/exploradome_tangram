@@ -63,6 +63,7 @@ see the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 │   
 └── main.py					- this foler contains unit test of your project.
 ```
+
 ### Dataset
 ![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
 
@@ -101,10 +102,10 @@ The dataset has the following directory structure:
 └── 
 ```
 To download the file:
-- data: [data zip](https://drive.google.com/file/d/1Eavrsk72iZeJFiv3NBnOkDxgs2WDF4Ow/view?usp=sharing)
-- train: [train zip](https://drive.google.com/file/d/1ZjOI81YRjdcNwF8i6gxLMC1UG02nu2QS/view?usp=sharing)
-- validation: [validation zip](https://drive.google.com/file/d/1oCzg1-qK1jKki0bnahJYu7XU5tUbTB_b/view?usp=sharing)
-- video_to_img (with all image of video file): [video to img zip](https://drive.google.com/file/d/13XPugnAZIxIP25GGkvKFjiDym-c7eMGL/view?usp=sharing)
+- train_full: [train_full](https://drive.google.com/file/d/18RoZgzSzTE6nzHCzzMuDl9h4RktS3rNo/view?usp=sharing)
+- train_balanced: [train_balanced](https://drive.google.com/file/d/1V_rKMpjhHeJHRY0YcShYBZeun1uTz_G0/view?usp=sharing)
+- test_full: [test_full](https://drive.google.com/file/d/15EB3UGwrMkUzZvJIlf6uxeXYeDUtFhXf/view?usp=sharing)
+- test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
 
 ### Trigram Preprocessing
 
