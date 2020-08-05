@@ -86,7 +86,7 @@ The dataset has the following directory structure:
 │    └── tortue ...
 │ 
 │ 
-├──  validation  
+├──  test  
 │    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
 │    └── bol: [bol.1.jpg, bol.2.jpg, bom.3.jpg ....]    
 │    └── chat  ... 		   
