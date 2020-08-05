@@ -1,6 +1,14 @@
 # Exploradome_tangram
 Tangram form detection from live video stream
 
+The tangram is a dissection puzzle consisting of seven flat polygons, called tans, which are put together to form shapes. 
+The objective is to replicate a pattern (given only an outline) using all seven pieces without overlap. 
+
+The 12 shapes are:
+![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
+
+boat(bateau), bowl(bol), cat(chat), heart(coeur), swan(cygne), rabbit(lapin), house(maison), hammer(marteau), mountain(montagne), bridge(pont), fox(renard), turtle(tortue)
+
 ## Table Of Contents
 -  [Installation and Usage](#Installation-and-Usage)
 -  [Usage](#Usage)
@@ -60,8 +68,6 @@ See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 ```
 
 ### Dataset
-![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
-
 The dataset has the following directory structure:
 
 ```
