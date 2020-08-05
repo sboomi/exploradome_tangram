@@ -32,8 +32,8 @@ Find the best accuracy with transfert learning model (CNN with Tensorflow) - see
 ## In progress
 
 Tested so far:
-* MobileNet: https://keras.io/api/applications/mobilenet/
-* InceptionV3 + L2 : https://keras.io/api/applications/inceptionv3/
+* [MobileNet](https://keras.io/api/applications/mobilenet/)
+* [InceptionV3 + L2](https://keras.io/api/applications/inceptionv3/)
 
 ## Results or improvement strategy
 
