@@ -29,7 +29,8 @@ pip install opencv-python tensorflow
 
 Find the best accuracy with transfert learning model (CNN with Tensorflow) - see the Google Sheet
 
-## In progress
+## Transfer learning
+Transfer learning is a machine learning method where a model developed for a task is reused as the starting point for a model on a second task.
 
 Tested so far:
 * [MobileNet](https://keras.io/api/applications/mobilenet/)
