@@ -107,7 +107,7 @@ for the train and validation with 140 images for each categories (balanced datas
 for the test with all images (unbalanced dataset)
 
 - test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
-for the test with 28 images for each categories (balanced dataset) - 20% of train_balanced dataset
+for the test with 28 images for each categories (balanced dataset) = 20% of train_balanced dataset
 
 ### Trigram Preprocessing
 Data Augmentation (applied on dataset):
