@@ -117,7 +117,7 @@ for the test with 28 images for each categories (balanced dataset) = 20% of trai
 
 ### Trigram Preprocessing
 Data Augmentation (applied on dataset):
-- Contrast changes
+- Contrast changes (factor = 0.5 #darkens the image or 1.5 #brightens the image)
 - Blurring (applied after contrast change)
 => already in folder train_full and test_full
 
