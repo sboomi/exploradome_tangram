@@ -7,7 +7,7 @@ The objective is to replicate a pattern (given only an outline) using all seven 
 The 12 shapes are:
 ![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
 
-boat(bateau), bowl(bol), cat(chat), heart(coeur), swan(cygne), rabbit(lapin), house(maison), hammer(marteau), mountain(montagne), bridge(pont),turtle(tortue), fox(renard)
+boat(bateau), bowl(bol), cat(chat), heart(coeur), swan(cygne), rabbit(lapin), house(maison), hammer(marteau), mountain(montagne), bridge(pont), fox(renard), turtle(tortue)
 
 ## Table Of Contents
 -  [Installation and Usage](#Installation-and-Usage)
