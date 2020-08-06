@@ -65,18 +65,18 @@ We have already created the dataset in this format and provided a download link 
 
 | Label           |  Total images | 
 |-----------------|---|
-|boat(bateau)     |   | 
-| bowl(bol)       |   |  
-| cat(chat)       |   | 
-| heart(coeur)    |   |  
-| swan(cygne)     |   |  
-| rabbit(lapin)   |   |  
-| house(maison)   |   |  
-| hammer(marteau) |   |  
-| mountain(montagne)  |   |  
-| bridge(pont)    |   |  
-| fox(renard)     |   |  
-| turtle(tortue)  |   |  
+|boat(bateau)     | 716  | 
+| bowl(bol)       | 248  |  
+| cat(chat)       | 266  | 
+| heart(coeur)    | 273  |  
+| swan(cygne)     | 321  |  
+| rabbit(lapin)   | 257  |  
+| house(maison)   | 456  |  
+| hammer(marteau) | 403  |  
+| mountain(montagne)  |  573 |  
+| bridge(pont)    | 709  |  
+| fox(renard)     | 768  |  
+| turtle(tortue)  | 314  |  
 
 ## 5. Data augmentation
 
