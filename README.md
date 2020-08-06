@@ -96,6 +96,15 @@ ImageDataGenerator with TensorFlow:
 - Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
 - Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
+```python
+image_gen_train = ImageDataGenerator(
+                    rescale=1./255,
+                    rotation_range=90,
+                    horizontal_flip=True,
+                    vertical_flip=True,
+                    validation_split=0.3)
+```
+
 | Label           |  Before Data Augmentation  |   After Data Augmentation* | 
 |-----------------|---------------|----------------|
 | boat(bateau)    | 716           |   2148         | 
@@ -162,14 +171,14 @@ for the train and validation with 400 images for each categories and for the tes
 **What is Transfer Learning?**
 Transfer learning is a machine learning technique in which a network that has already been trained to perform a specific task is repurposed as a starting point for another similar task. 
 
-**Transfer Learning Strategies & Advantages**
+**Transfer Learning Strategies & Advantages:**
 There two transfer learning strategies, here we use:
    - Initialize the CNN network with the pre-trained weights
    - We then retrain the entire CNN network while setting the learning rate to be very small, which ensures that we don't drastically change the trained weights
    
 The advantage of transfer learning is that it provides fast training progress since we're not starting from scratch. Transfer learning is also very useful when you have a small training dataset available, but there's a large dataset in a similar domain (i.e. ImageNet).
 
-**Using Pretrained Model**
+**Using Pretrained Model:**
 There are 2 ways to create models in Keras. Here we used the sequential model.
 The sequential model is a linear stack of layers. You can simply keep adding layers in a sequential model just by calling add method. 
 
@@ -189,9 +198,14 @@ These models can be downloaded and incorporated directly into new models that ex
 ## Apply Transfer Learning
 
 ```python
-
+base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
+                                               include_top=False,
+                                               weights='imagenet')
 ```
 
+```python
+inception = InceptionV3(weights='imagenet', include_top=False)
+```
 
 ## Results or improvement strategy
 
