@@ -10,38 +10,23 @@ The 12 shapes are:
 
 boat(bateau), bowl(bol), cat(chat), heart(coeur), swan(cygne), rabbit(lapin), house(maison), hammer(marteau), mountain(montagne), bridge(pont), fox(renard), turtle(tortue)
 
+## Objective
+
+The objective of this project is to train a model to recognize in real time the realization of tangram (record in live and make by children) and to make predictions on the realized shapes.
+
+Here we will use a model for the multiclass image classification by using a pre-trained TensorFlow 2 (using transfert learning framework).
+
 ## Table Of Contents
 -  [Installation and Usage](#Installation-and-Usage)
--  [Usage](#Usage)
--  [Configuration](#Configuration)
--  [In Details](#in-details)
+-  [Dataset Creation](#Dataset-Creation)
+-  [Model Creation](#Model-Creation)
+  -  [Transfer learning](#Transfer-learning)
+-  [Getting Started](#Getting-Started)
+-  [Command Line Args Reference](#Command-Line-Args-Reference)
+-  [References](#References)
 -  [Team](#Team)
 
-## Installation and Usage
-
-- [Tensorflow](https://www.tensorflow.org/) (An open source deep learning platform) 
-- [OpenCV](https://opencv.org/) (Open Computer Vision Library)
-
-```bash
-pip install opencv-python tensorflow
-```
-
-## Approach taken
-
-Find the best accuracy with transfert learning model (CNN with Tensorflow) - see the Google Sheet
-
-## Transfer learning
-Transfer learning is a machine learning method where a model developed for a task is reused as the starting point for a model on a second task.
-
-Tested so far:
-* [MobileNet](https://keras.io/api/applications/mobilenet/)
-* [InceptionV3 + L2](https://keras.io/api/applications/inceptionv3/)
-
-## Results or improvement strategy
-
-See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
-
-## Configuration
+## Dataset Creation
 
 ## In Details
 ```
@@ -127,14 +112,67 @@ ImageDataGenerator with TensorFlow (applied on model):
 - Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
 - Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
+## Model Creation
+### Transfer learning
+**What is Transfer Learning?**
+Transfer learning is a machine learning technique in which a network that has already been trained to perform a specific task is repurposed as a starting point for another similar task. 
 
-### Trigram Model
+**Transfer Learning Strategies & Advantages**
+There two transfer learning strategies, here we use:
+   - Initialize the CNN network with the pre-trained weights
+   - We then retrain the entire CNN network while setting the learning rate to be very small, which ensures that we don't drastically change the trained weights
+   
+The advantage of transfer learning is that it provides fast training progress since we're not starting from scratch. Transfer learning is also very useful when you have a small training dataset available, but there's a large dataset in a similar domain (i.e. ImageNet).
+
+**Using Pretrained Model**
+There are 2 ways to create models in Keras. Here we used the sequential model.
+The sequential model is a linear stack of layers. You can simply keep adding layers in a sequential model just by calling add method. 
+
+The two pretrained models used are: 
+* [MobileNet](https://keras.io/api/applications/mobilenet/)
+* [InceptionV3 + L2](https://keras.io/api/applications/inceptionv3/)
+
+**Transfer Learning with Image Data**
+It is common to perform transfer learning with predictive modeling problems that use image data as input.
+
+This may be a prediction task that takes photographs or video data as input.
+
+For these types of problems, it is common to use a deep learning model pre-trained for a large and challenging image classification task such as the [ImageNet](http://www.image-net.org/) 1000-class photograph classification competition.
+
+These models can be downloaded and incorporated directly into new models that expect image data as input.
+
+### Apply Transfer Learning
+```python
+
+```
+
+### Results or improvement strategy
+
+See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
+
+## Getting Started
+
+### Installation and Usage
+
+- [Tensorflow](https://www.tensorflow.org/) (An open source deep learning platform) 
+- [OpenCV](https://opencv.org/) (Open Computer Vision Library)
+
+```bash
+pip install opencv-python tensorflow
+```
+
+### Configuration
+**Trigram Model**
 
 To use the model, open a new terminal and copy this link:
 
 ```
 wget -O model.h5 'https://drive.google.com/uc?export=download&id=13dDtd4jsCyA6Z4MEPK3RsWDLiCZJvEPc'
 ```
+
+
+
+
 
 ## Team
 
