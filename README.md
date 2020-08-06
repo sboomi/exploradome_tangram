@@ -28,6 +28,59 @@ Here we will use a model for the multiclass image classification by using a pre-
 
 # Dataset Creation
 
+## 1. Video recording
+To create the dataset our image classification, we need to have images with label of each tangram categorie.
+To do this, we filmed continuously members of our team performing in turn the 12 shapes possibles
+For this, we using the camera provided by exploradome to respect the conditions under which the algorithm will be used.
+
+## 2. Image dataset preparation
+For the image dataset preparation, we need to cut video into photos.
+For cutting the video into images, we proceeded in this ways:
+- with python script, the video is splitting in photo (every 1 second)
+
+## 3. Images labeling
+TensorFlow requires the dataset to be provided in the following directory structure:
+Like this, that why each photo is order in folder with the name of categorie :
+```
+├──  multilabel_data  
+│    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
+│    └── bol: [bol.1.jpg, bol.2.jpg, bom.3.jpg ....]    
+│    └── chat  ... 		   
+│    └── coeur ...  
+│    └── cygne ...
+│    └── lapin ...
+│    └── maison ...
+│    └── marteau ...
+│    └── montagne ...
+│    └── pont ...
+│    └── renard ...
+│    └── tortue ...
+│ 
+│ 
+├── 
+```
+We have already created the dataset in this format and provided a download link (and some instructions) in the GitHub repository. 
+
+## 4. Initial Dataset
+
+| Label           |  Total images | 
+|-----------------|---|
+|boat(bateau)     |   | 
+| bowl(bol)       |   |  
+| cat(chat)       |   | 
+| heart(coeur)    |   |  
+| swan(cygne)     |   |  
+| rabbit(lapin)   |   |  
+| house(maison)   |   |  
+| hammer(marteau) |   |  
+| mountain(montagne)  |   |  
+| bridge(pont)    |   |  
+| fox(renard)     |   |  
+| turtle(tortue)  |   |  
+
+## 5. Data augmentation
+
+
 ## In Details
 ```
 ├──  data  - here's the image classification datasets
