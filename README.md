@@ -96,9 +96,9 @@ ImageDataGenerator with TensorFlow:
 - Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
 - Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
-| Label           |  Before Data Augmentation  |   After Data Augmentation | 
+| Label           |  Before Data Augmentation  |   After Data Augmentation* | 
 |-----------------|---------------|----------------|
-|boat(bateau)     | 716           |   2148         | 
+| boat(bateau)    | 716           |   2148         | 
 | bowl(bol)       | 248           |   744          | 
 | cat(chat)       | 266           |   800          | 
 | heart(coeur)    | 273           |   820          | 
@@ -112,8 +112,13 @@ ImageDataGenerator with TensorFlow:
 | turtle(tortue)  | 314           |   942          |  
 | TOTAL           | 5304          |   15919        | 
 
+* with script python
 
-## Dataset
+Next step, we created a balanced datasets. 
+For each categorie we keep randomly:
+- 400 images for the training dataset 
+- 80 images (20% of 400) for the test dataset 
+
 The dataset has the following directory structure:
 ```
 ├──  train  
@@ -147,20 +152,10 @@ The dataset has the following directory structure:
 │   
 └── 
 ```
+
 To download the file:
-- train_full: [train_full](https://drive.google.com/file/d/18RoZgzSzTE6nzHCzzMuDl9h4RktS3rNo/view?usp=sharing)
-for the train and validation with all images (unbalanced dataset)
-
-- train_balanced: [train_balanced](https://drive.google.com/file/d/1V_rKMpjhHeJHRY0YcShYBZeun1uTz_G0/view?usp=sharing)
-for the train and validation with 140 images for each categories (balanced dataset)
-
-- test_full: [test_full](https://drive.google.com/file/d/15EB3UGwrMkUzZvJIlf6uxeXYeDUtFhXf/view?usp=sharing)
-for the test with all images (unbalanced dataset)
-
-- test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
-for the test with 28 images for each categories (balanced dataset) = 20% of train_balanced dataset
-
-
+- dataset: [train_balanced](https://drive.google.com/file/d/1upNDIpsRwdO8O08SnUJEfez4dJYMnQkS/view?usp=sharing)
+for the train and validation with 400 images for each categories and for the test dataset with 80 images(balanced dataset)
 
 # Model Creation
 ## Transfer learning
@@ -192,9 +187,11 @@ For these types of problems, it is common to use a deep learning model pre-train
 These models can be downloaded and incorporated directly into new models that expect image data as input.
 
 ## Apply Transfer Learning
+
 ```python
 
 ```
+
 
 ## Results or improvement strategy
 
