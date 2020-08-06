@@ -26,7 +26,7 @@ Here we will use a model for the multiclass image classification by using a pre-
 -  [References](#References)
 -  [Team](#Team)
 
-## Dataset Creation
+# Dataset Creation
 
 ## In Details
 ```
@@ -54,7 +54,7 @@ Here we will use a model for the multiclass image classification by using a pre-
 └──
 ```
 
-### Dataset
+## Dataset
 The dataset has the following directory structure:
 
 ```
@@ -102,7 +102,7 @@ for the test with all images (unbalanced dataset)
 - test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
 for the test with 28 images for each categories (balanced dataset) = 20% of train_balanced dataset
 
-### Trigram Preprocessing
+## Trigram Preprocessing
 Data Augmentation (applied on dataset):
 - Contrast changes (factor = 0.5 #darkens the image or 1.5 #brightens the image)
 - Blurring (applied after contrast change)
@@ -112,8 +112,8 @@ ImageDataGenerator with TensorFlow (applied on model):
 - Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
 - Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
-## Model Creation
-### Transfer learning
+# Model Creation
+## Transfer learning
 **What is Transfer Learning?**
 Transfer learning is a machine learning technique in which a network that has already been trained to perform a specific task is repurposed as a starting point for another similar task. 
 
@@ -141,18 +141,18 @@ For these types of problems, it is common to use a deep learning model pre-train
 
 These models can be downloaded and incorporated directly into new models that expect image data as input.
 
-### Apply Transfer Learning
+## Apply Transfer Learning
 ```python
 
 ```
 
-### Results or improvement strategy
+## Results or improvement strategy
 
 See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
 
-## Getting Started
+# Getting Started
 
-### Installation and Usage
+## Installation and Usage
 
 - [Tensorflow](https://www.tensorflow.org/) (An open source deep learning platform) 
 - [OpenCV](https://opencv.org/) (Open Computer Vision Library)
@@ -161,7 +161,7 @@ See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 pip install opencv-python tensorflow
 ```
 
-### Configuration
+## Configuration
 **Trigram Model**
 
 To use the model, open a new terminal and copy this link:
@@ -171,10 +171,7 @@ wget -O model.h5 'https://drive.google.com/uc?export=download&id=13dDtd4jsCyA6Z4
 ```
 
 
-
-
-
-## Team
+# Team
 
 - [Jasmine BANCHEREAU](https://github.com/BeeJasmine)
 - [Shadi BOOMI](https://github.com/sboomi)
