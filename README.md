@@ -63,8 +63,11 @@ We have already created the dataset in this format and provided a download link 
 
 ## 4. Initial Dataset
 
+The initial dataset is unbalanced between categorie. 
+We didn't split already the dataset between training data and testing before applying data augmentation.
+
 | Label           |  Total images | 
-|-----------------|---|
+|-----------------|------|
 |boat(bateau)     | 716  | 
 | bowl(bol)       | 248  |  
 | cat(chat)       | 266  | 
@@ -77,39 +80,41 @@ We have already created the dataset in this format and provided a download link 
 | bridge(pont)    | 709  |  
 | fox(renard)     | 768  |  
 | turtle(tortue)  | 314  |  
+| TOTAL           | 5304 | 
 
 ## 5. Data augmentation
+Having a large dataset is crucial for the performance of the deep learning model.
+Data augmentation is a strategy to increase the diversity of data available for training models, without actually collecting new data.
 
+For our dataset we applied different types images augmentations to obtain more images.
 
-## In Details
-```
-├──  data  - here's the image classification datasets
-│    └── train_full  - for the train and validation with all images (unbalanced).
-│    └── train_balanced - for the train and validation with 140 images for each categories (balanced).
-│    └── test_full  		- for the test with all images (unbalanced).
-│    └── test_balanced  - for the test with 28 images for each categories (balanced) - 20% of train_balanced dataset.
-│   
-│
-│
-├──  modules  - this file contains the modules.
-│    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two, predict 
-│                                  => output with pred of each categorie.
-│
-├── saved_model  - this folder contains any customed layers of your project.
-│   └── tangram_mobilenetv2.h5
-│   └── tangram_inceptionv3.h5
-│
-│ 
-├── collab Notebooks  - this folder contains any model and preprocessing of your project.
-│   └── trigram_model_v1.ipynb
-│   └── trigram_model_v2.ipynb
-│   
-└──
-```
+Data Augmentation with python script:
+- Contrast changes (1.5 #brightens the image) with PIL and ImageEnhance.Brightness()
+- Blurring (applied after contrast change) with OpenCV and cv2.gaussianblur() 
+
+ImageDataGenerator with TensorFlow:
+- Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
+- Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
+
+| Label           |  Before Data Augmentation  |   After Data Augmentation | 
+|-----------------|---------------|----------------|
+|boat(bateau)     | 716           |   2148         | 
+| bowl(bol)       | 248           |   744          | 
+| cat(chat)       | 266           |   800          | 
+| heart(coeur)    | 273           |   820          | 
+| swan(cygne)     | 321           |   964          | 
+| rabbit(lapin)   | 257           |   772          | 
+| house(maison)   | 456           |   1368         | 
+| hammer(marteau) | 403           |   1209         | 
+| mountain(montagne)  |  573      |   1720         | 
+| bridge(pont)    | 709           |   2128         | 
+| fox(renard)     | 768           |   2304         |  
+| turtle(tortue)  | 314           |   942          |  
+| TOTAL           | 5304          |   15919        | 
+
 
 ## Dataset
 The dataset has the following directory structure:
-
 ```
 ├──  train  
 │    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
@@ -155,15 +160,7 @@ for the test with all images (unbalanced dataset)
 - test_balanced: [test_balanced](https://drive.google.com/file/d/13tTo7ue3HUGeQXfq4aj215EZIEvHXs0M/view?usp=sharing)
 for the test with 28 images for each categories (balanced dataset) = 20% of train_balanced dataset
 
-## Trigram Preprocessing
-Data Augmentation (applied on dataset):
-- Contrast changes (factor = 0.5 #darkens the image or 1.5 #brightens the image)
-- Blurring (applied after contrast change)
-=> already in folder train_full and test_full
 
-ImageDataGenerator with TensorFlow (applied on model):
-- Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
-- Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
 # Model Creation
 ## Transfer learning
@@ -204,6 +201,32 @@ These models can be downloaded and incorporated directly into new models that ex
 See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
 
 # Getting Started
+
+## In Details
+```
+├──  data  - here's the image classification datasets
+│    └── train_full  - for the train and validation with all images (unbalanced).
+│    └── train_balanced - for the train and validation with 140 images for each categories (balanced).
+│    └── test_full  		- for the test with all images (unbalanced).
+│    └── test_balanced  - for the test with 28 images for each categories (balanced) - 20% of train_balanced dataset.
+│   
+│
+│
+├──  modules  - this file contains the modules.
+│    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two, predict 
+│                                  => output with pred of each categorie.
+│
+├── saved_model  - this folder contains any customed layers of your project.
+│   └── tangram_mobilenetv2.h5
+│   └── tangram_inceptionv3.h5
+│
+│ 
+├── collab Notebooks  - this folder contains any model and preprocessing of your project.
+│   └── trigram_model_v1.ipynb
+│   └── trigram_model_v2.ipynb
+│   
+└──
+```
 
 ## Installation and Usage
 
