@@ -1,10 +1,10 @@
-# Exploradome_tangram
-Tangram form detection from live video stream
+# TangrIAm Project
 
-The tangram is a dissection puzzle consisting of seven flat polygons, called tans, which are put together to form shapes. 
-The objective is to replicate a pattern (given only an outline) using all seven pieces without overlap. 
+The project is partnership between Exploradôme museum, OCTO Technology and Microsoft and it aims to introduce the concept and application of artificial intelligence to young children. The specific application developed for the project is to apply object detection to live tangram solving.
 
-The 12 shapes are:
+A tangram is a dissection puzzle consisting of seven flat polygons (5 triangles, 1 square and 1 parallelogram) which are combined to obtain a specific shape. The objective is to replicate a pattern (given only an outline) using all seven pieces without overlap.
+
+Within the framework of the project, 12 tangram selected shapes act as classes for the object detector:
 
 ![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
 
@@ -12,9 +12,7 @@ boat(bateau), bowl(bol), cat(chat), heart(coeur), swan(cygne), rabbit(lapin), ho
 
 ## Objective
 
-The objective of this project is to train a model to recognize in real time the realization of tangram (record in live and make by children) and to make predictions on the realized shapes.
-
-Here we will use a model for the multiclass image classification by using a pre-trained TensorFlow 2 (using transfert learning framework).
+Classify tangram shapes from a live video stream using transfer learning as the main basis of our model.
 
 ## Table Of Contents
 -  [Installation and Usage](#Installation-and-Usage)
@@ -29,18 +27,19 @@ Here we will use a model for the multiclass image classification by using a pre-
 # Dataset Creation
 
 ## 1. Video recording
-To create the dataset our image classification, we need to have images with label of each tangram categorie.
-To do this, we filmed continuously members of our team performing in turn the 12 shapes possibles
-For this, we using the camera provided by exploradome to respect the conditions under which the algorithm will be used.
+To create the dataset our image classification, we need to have images with label of each category of tangram.
+To do this, we filmed continuously members of our team performing in turn the 12 shapes possibles, by using the camera provided by Exploradome to respect the conditions under which the algorithm will be used.
 
 ## 2. Image dataset preparation
-For the image dataset preparation, we need to cut video into photos.
-For cutting the video into images, we proceeded in this ways:
-- with python script, the video is splitting in photo (every 1 second)
+
+To prepare the dataset, we needed to sample images of each shape from a video.
+* We sampled 1 image/second
+* We divided each image in half to get more samples
+* We manually selected the ones where the shape was distinguishable enough
 
 ## 3. Images labeling
 TensorFlow requires the dataset to be provided in the following directory structure:
-Like this, that why each photo is order in folder with the name of categorie :
+Like this, that why each photo is order in folder with the name of category :
 ```
 ├──  multilabel_data  
 │    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
@@ -63,7 +62,7 @@ We have already created the dataset in this format and provided a download link 
 
 ## 4. Initial Dataset
 
-The initial dataset is unbalanced between categorie. 
+The initial dataset is unbalanced between categoriy. 
 We didn't split already the dataset between training data and testing before applying data augmentation.
 
 | Label           |  Total images | 
@@ -88,13 +87,15 @@ Data augmentation is a strategy to increase the diversity of data available for 
 
 For our dataset we applied different types images augmentations to obtain more images.
 
-Data Augmentation with python script:
-- Contrast changes (1.5 #brightens the image) with PIL and ImageEnhance.Brightness()
-- Blurring (applied after contrast change) with OpenCV and cv2.gaussianblur() 
+Data Augmentation with python scripts:
+- Contrast changes (1.5 #brightens the image) with PIL and ImageEnhance with `Brightness()`
+- Blurring (applied after contrast change) with OpenCV and cv2 with `gaussianblur()` 
 
-ImageDataGenerator with TensorFlow:
-- Rescale: 1./255 is to transform every pixel value from range [0,255] -> [0,1]
-- Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
+`ImageDataGenerator` with TensorFlow:
+* Rescaling : 1./255 is to transform every pixel value from range [0,255] -> [0,1]
+* Rotation : each picture is rotated with a random angle from 0° to 90°
+* Flipping : each picture gets flipped on both axis (vertical and horizontal)
+* Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
 ```python
 image_gen_train = ImageDataGenerator(
@@ -119,12 +120,12 @@ image_gen_train = ImageDataGenerator(
 | bridge(pont)    | 709           |   2128         | 
 | fox(renard)     | 768           |   2304         |  
 | turtle(tortue)  | 314           |   942          |  
-| TOTAL           | 5304          |   15919        | 
+| **TOTAL**           | **5304**          |   **15919**        | 
 
 * with script python
 
 Next step, we created a balanced datasets. 
-For each categorie we keep randomly:
+For each category we keep randomly:
 - 400 images for the training dataset 
 - 80 images (20% of 400) for the test dataset 
 
@@ -162,9 +163,7 @@ The dataset has the following directory structure:
 └── 
 ```
 
-To download the file:
-- dataset: [train_balanced](https://drive.google.com/file/d/1upNDIpsRwdO8O08SnUJEfez4dJYMnQkS/view?usp=sharing)
-for the train and validation with 400 images for each categories and for the test dataset with 80 images(balanced dataset)
+To access the dataset, visit the [Google Drive link](https://drive.google.com/drive/folders/1LQO_zfVZ-niiVsCqzQEUEZHry8aATK2s?usp=sharing). The folder contains both training and validation sets.
 
 # Model Creation
 ## Transfer learning
@@ -173,8 +172,8 @@ Transfer learning is a machine learning technique in which a network that has al
 
 **Transfer Learning Strategies & Advantages:**
 There two transfer learning strategies, here we use:
-   - Initialize the CNN network with the pre-trained weights
-   - We then retrain the entire CNN network while setting the learning rate to be very small, which ensures that we don't drastically change the trained weights
+   * Initialize the CNN network with the pre-trained weights
+   * We then retrain the entire CNN network while setting the learning rate to be very small, which ensures that we don't drastically change the trained weights
    
 The advantage of transfer learning is that it provides fast training progress since we're not starting from scratch. Transfer learning is also very useful when you have a small training dataset available, but there's a large dataset in a similar domain (i.e. ImageNet).
 
@@ -183,8 +182,8 @@ There are 2 ways to create models in Keras. Here we used the sequential model.
 The sequential model is a linear stack of layers. You can simply keep adding layers in a sequential model just by calling add method. 
 
 The two pretrained models used are: 
-* [MobileNet](https://keras.io/api/applications/mobilenet/)
-* [InceptionV3 + L2](https://keras.io/api/applications/inceptionv3/)
+* [MobileNetV2](https://www.tensorflow.org/api_docs/python/tf/keras/applications/MobileNetV2): lightweight, used for laptops
+* [InceptionV3 + L2](https://www.tensorflow.org/api_docs/python/tf/keras/applications/InceptionV3): heavier, used for image analysis
 
 **Transfer Learning with Image Data**
 It is common to perform transfer learning with predictive modeling problems that use image data as input.
@@ -214,47 +213,53 @@ See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 # Getting Started
 
 ## In Details
-```
-├──  data  - here's the image classification datasets
-│    └── train_full  - for the train and validation with all images (unbalanced).
-│    └── train_balanced - for the train and validation with 140 images for each categories (balanced).
-│    └── test_full  		- for the test with all images (unbalanced).
-│    └── test_balanced  - for the test with 28 images for each categories (balanced) - 20% of train_balanced dataset.
-│   
-│
-│
-├──  modules  - this file contains the modules.
-│    └── get_img_from_webcam.py  - here's the file to extract images of video cam, split in two, predict 
-│                                  => output with pred of each categorie.
-│
-├── saved_model  - this folder contains any customed layers of your project.
-│   └── tangram_mobilenetv2.h5
-│   └── tangram_inceptionv3.h5
-│
-│ 
-├── collab Notebooks  - this folder contains any model and preprocessing of your project.
-│   └── trigram_model_v1.ipynb
-│   └── trigram_model_v2.ipynb
-│   
-└──
-```
+
+* The Notebook section: a detailled explanation on how models are created
+* `model` folder: where models can be stocked
+* `modules` folder: where several python scripts can be stocked for experimental purposes
+* `test_tangram.py` the main file used to launch the identification
 
 ## Installation and Usage
 
 - [Tensorflow](https://www.tensorflow.org/) (An open source deep learning platform) 
 - [OpenCV](https://opencv.org/) (Open Computer Vision Library)
+- Python 3.7.x, 64bit
 
 ```bash
 pip install opencv-python tensorflow
 ```
 
-## Configuration
-**Trigram Model**
+## Get more models
 
-To use the model, open a new terminal and copy this link:
+Get inside the model folder :
 
 ```
-wget -O model.h5 'https://drive.google.com/uc?export=download&id=13dDtd4jsCyA6Z4MEPK3RsWDLiCZJvEPc'
+cd models/
+```
+
+**Inception V3**
+
+```
+wget -O InceptionV3.h5 https://drive.google.com/uc?export=download&id=1G2dIFlRW2IVDehxZAU6kU72Ps9YMvzaI
+```
+
+**MobileNetV2**
+
+```
+wget -O MobileNetV2.h5 https://drive.google.com/uc?export=download&id=13dDtd4jsCyA6Z4MEPK3RsWDLiCZJvEPc
+```
+## Inference
+
+All model files can be found in the models folder. To use a model for inference, either connect the camera to your device or select a video file and write the following command line:
+
+```
+python test_tangram -c [camera] -s [side : left | right] -o [output_folder] -m [model] -i [input folder (OPTIONAL)]
+```
+
+**Example:**
+
+```
+python test_tangram.py -c 1 -s left -o result_pics -m models\tangram_jason_mobilenet_final_06082020.h5
 ```
 
 
