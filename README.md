@@ -27,17 +27,17 @@ Classify tangram shapes from a live video stream using transfer learning as the 
 
 ## Table Of Contents
 -  [Dataset Creation](#Dataset-Creation)
-   * [1.Video recording](#Video-recording)
-   * [2.Image dataset preparation](#Image-dataset-preparation)
-   * [3.Images labeling](#Images-labeling)
-   * [4.Initial Dataset](#Initial-Dataset)
-   * [5.Data augmentation](#Data-augmentation)
+   * [1. Video recording](#Video-recording)
+   * [2. From video to images](#From-video-to-images)
+   * [3. Images labeling](#Images-labeling)
+   * [4. Initial Dataset](#Initial-Dataset)
+   * [5. Data augmentation](#Data-augmentation)
 -  [Model Creation](#Model-Creation)
    * [Transfer learning](#Transfer-learning)
    * [Apply Transfer Learning](#Apply-Transfer-Learning)
    * [Results or improvement strategy](#Results-or-improvement-strategy)
 -  [Getting Started](#Getting-Started)
-   * [In Details](#In-Details)
+   * [Folders](#Folders)
    * [Installation and Usage](#Installation-and-Usage)
    * [Get more models](#Get-more-models)
    * [Inference](#Inference)
@@ -46,19 +46,17 @@ Classify tangram shapes from a live video stream using transfer learning as the 
 # Dataset Creation
 
 ## 1. Video recording
-To create the dataset our image classification, we need to have images with label of each category of tangram.
-To do this, we filmed continuously members of our team performing in turn the 12 shapes possibles, by using the camera provided by Exploradome to respect the conditions under which the algorithm will be used.
+The dataset used to train the models was created by recording video stream of people solving a tangram puzzle and capturing the frames which include completed tangram shapes. The respective frames were used to compile an image dataset with images for each class/tangram shape.
 
-## 2. Image dataset preparation
+## 2. From video to images
 
-To prepare the dataset, we needed to sample images of each shape from a video.
-* We sampled 1 image/second
-* We divided each image in half to get more samples
-* We manually selected the ones where the shape was distinguishable enough
+The video recording was processed to create an image dataset as follows:
+  * Extract 1 frame/second
+  * Half each frame to obtain more images
+  * Manually select images with no obstruction tangram shapes (e.g. human hands on the tangram surface)
 
-## 3. Images labeling
-TensorFlow requires the dataset to be provided in the following directory structure:
-Like this, that why each photo is order in folder with the name of category :
+## 3. Image labeling
+Transfer learning with TensorFlow requires an input dataset with a directory structure as below (ordered images in the respective category folder):
 ```
 ├──  multilabel_data  
 │    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
@@ -77,12 +75,11 @@ Like this, that why each photo is order in folder with the name of category :
 │ 
 ├── 
 ```
-We have already created the dataset in this format and provided a download link (and some instructions) in the GitHub repository. 
+A download link (and instructions) are available in the GitHub repository.
 
 ## 4. Initial Dataset
 
-The initial dataset is unbalanced between categoriy. 
-We didn't split already the dataset between training data and testing before applying data augmentation.
+Some categories are more present than other in the initial dataset.
 
 | Label           |  Total images | 
 |-----------------|------|
@@ -101,20 +98,18 @@ We didn't split already the dataset between training data and testing before app
 | TOTAL           | 5304 | 
 
 ## 5. Data augmentation
-Having a large dataset is crucial for the performance of the deep learning model.
 Data augmentation is a strategy to increase the diversity of data available for training models, without actually collecting new data.
-
-For our dataset we applied different types images augmentations to obtain more images.
+For this project different types of image augmentations were applied to the initial dataset to create more images and increase variability. 
 
 Data Augmentation with python scripts:
-- Contrast changes (1.5 #brightens the image) with PIL and ImageEnhance with `Brightness()`
-- Blurring (applied after contrast change) with OpenCV and cv2 with `gaussianblur()` 
+  * Contrast changes (1.5 #brightens the image) with PIL and ImageEnhance with `Brightness()`
+  * Blurring (applied after contrast change) with OpenCV and cv2 with `gaussianblur()`
 
 `ImageDataGenerator` with TensorFlow:
-* Rescaling : 1./255 is to transform every pixel value from range [0,255] -> [0,1]
-* Rotation : each picture is rotated with a random angle from 0° to 90°
-* Flipping : each picture gets flipped on both axis (vertical and horizontal)
-* Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
+  * Rescaling: 1./255 is to transform every pietxel value from range [0,255] -> [0,1]
+  * Rotation: each picture is rotated with a random angle from 0° to 90°
+  * Flipping: each picture gets flipped on both axis (vertical and horizontal)
+  * Split train_full or train_balanced dataset to train and validation dataset (= 30% of train dataset)
 
 ```python
 image_gen_train = ImageDataGenerator(
@@ -141,14 +136,12 @@ image_gen_train = ImageDataGenerator(
 | turtle(tortue)  | 314           |   942          |  
 | **TOTAL**           | **5304**          |   **15919**        | 
 
-* with script python
-
-Next step, we created a balanced datasets. 
-For each category we keep randomly:
-- 400 images for the training dataset 
-- 80 images (20% of 400) for the test dataset 
-
-The dataset has the following directory structure:
+* with python script :
+A next step is to balance the datasets and keep, for each class, assigned randomly:
+  - 400 images for the training dataset
+  - 80 images (20% of 400) for the test dataset
+  
+The final dataset has the following directory structure:
 ```
 ├──  train  
 │    └── bateau: [bateau.1.jpg, bateau.2.jpg, bateau.3.jpg ....]  
@@ -190,26 +183,26 @@ To access the dataset, visit the [Google Drive link](https://drive.google.com/dr
 Transfer learning is a machine learning technique in which a network that has already been trained to perform a specific task is repurposed as a starting point for another similar task. 
 
 **Transfer Learning Strategies & Advantages:**
-There two transfer learning strategies, here we use:
+The transfer learning strategy adopted for the project is to:
    * Initialize the CNN network with the pre-trained weights
-   * We then retrain the entire CNN network while setting the learning rate to be very small, which ensures that we don't drastically change the trained weights
+   * Retrain the entire CNN network while setting the learning rate to be very small, which avoids drastic changes in the pre-trained weights
    
-The advantage of transfer learning is that it provides fast training progress since we're not starting from scratch. Transfer learning is also very useful when you have a small training dataset available, but there's a large dataset in a similar domain (i.e. ImageNet).
+The advantage of transfer learning is that it provides fast training progress since we're not starting from scratch. Transfer learning is also very useful when you have a small training dataset available.
 
-**Using Pretrained Model:**
-There are 2 ways to create models in Keras. Here we used the sequential model.
-The sequential model is a linear stack of layers. You can simply keep adding layers in a sequential model just by calling add method. 
+**Using a Pretrained Model:**
+There are two ways to create models with Keras API. Here, the sequential model is used. The sequential model is a linear stack of layers. 
+You can simply keep adding layers in a sequential model just by calling “add” method. 
 
-The two pretrained models used are: 
+The two pretrained models tested on the project dataset are:
 * [MobileNetV2](https://www.tensorflow.org/api_docs/python/tf/keras/applications/MobileNetV2): lightweight, used for laptops
 * [InceptionV3 + L2](https://www.tensorflow.org/api_docs/python/tf/keras/applications/InceptionV3): heavier, used for image analysis
 
-**Transfer Learning with Image Data**
+**Transfer Learning with Image Data:**
 It is common to perform transfer learning with predictive modeling problems that use image data as input.
 
 This may be a prediction task that takes photographs or video data as input.
 
-For these types of problems, it is common to use a deep learning model pre-trained for a large and challenging image classification task such as the [ImageNet](http://www.image-net.org/) 1000-class photograph classification competition.
+For these type of tasks, it is common to use a deep learning model pre-trained for a large and challenging image classification task such as the [ImageNet](http://www.image-net.org/) 1000-class photograph classification competition.
 
 These models can be downloaded and incorporated directly into new models that expect image data as input.
 
@@ -231,12 +224,13 @@ See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653I
 
 # Getting Started
 
-## In Details
+## Folders
 
-* The Notebook section: a detailled explanation on how models are created
-* `model` folder: where models can be stocked
-* `modules` folder: where several python scripts can be stocked for experimental purposes
-* `test_tangram.py` the main file used to launch the identification
+* notebook folder: includes Jupyter notebooks with a detailed explanation on how models are trained
+* model folder: includes trained models
+* modules folder: includes python scripts can be stocked for experimental purposes
+* test_tangram.py the main file used for inference
+
 
 ## Installation and Usage
 
@@ -250,7 +244,7 @@ pip install opencv-python tensorflow
 
 ## Get more models
 
-Get inside the model folder :
+The trained models are available in the `models folder:
 
 ```
 cd models/
