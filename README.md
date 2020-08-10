@@ -234,14 +234,20 @@ model = tf.keras.Sequential([
 ```
 
 ## Results or improvement strategy
-
+**MobileNetV2**
 ![image](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl)
-
+![image](https://drive.google.com/uc?export=view&id=16JgUAb4uHdvIc6bEEd_qwei9Ou7cySZf)
 The MobileNetV2 has a good accuracy overall on pictures never shown to the model : overall accuracy is 87%. It can also work quickly at a speed of 5 frames per second, more than enough for the project.
 
 Given the following classification report and confusion matrix, the most issues are found between maison (house) and marteau (hammer), cygne (swan) and torue (turtle), and bol (bowl) and marteau (hammer) .
 
 More training on these classes is required to achieve a more homogeneous accuracy on each classes. Some classes perform perfectly and other less, which gives overall a good accuracy but with uncertainties on some classes.
+
+**InceptionV3**
+
+
+**Conclusion**
+add a conclusions paragraph here detailing the main findings (top accuracy, FPS), model comparison, how accuracy differs per class compared to overall accuracy, and quote any changes in model performance depending on the environment (hands present, other).
 
 # Getting Started
 
