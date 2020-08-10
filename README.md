@@ -220,7 +220,13 @@ inception = InceptionV3(weights='imagenet', include_top=False)
 
 ## Results or improvement strategy
 
-See the Google Sheet: https://docs.google.com/spreadsheets/d/1_P0LEN9CyY8Zfk653IVwfmMUg0E6tyfjU2sLSH3ChIc/edit?usp=sharing
+![image](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl/view?usp=sharing)
+
+The MobileNetV2 has a good accuracy overall on pictures never shown to the model : overall accuracy is 87%. It can also work quickly at a speed of 5 frames per second, more than enough for the project.
+
+Given the following classification report and confusion matrix, the most issues are found between maison (house) and marteau (hammer), cygne (swan) and torue (turtle), and bol (bowl) and marteau (hammer) .
+
+More training on these classes is required to achieve a more homogeneous accuracy on each classes. Some classes perform perfectly and other less, which gives overall a good accuracy but with uncertainties on some classes.
 
 # Getting Started
 
