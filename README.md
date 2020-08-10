@@ -8,17 +8,32 @@ Within the framework of the project, 12 tangram selected shapes act as classes f
 
 ![image](https://drive.google.com/uc?export=view&id=1O_vfKNLHZ7HEEBNUZfEWRGjRe7QnCtsS)
 
-boat(bateau), bowl(bol), cat(chat), heart(coeur), swan(cygne), rabbit(lapin), house(maison), hammer(marteau), mountain(montagne), bridge(pont), fox(renard), turtle(tortue)
+* boat(bateau), 
+* bowl(bol), 
+* cat(chat), 
+* heart(coeur), 
+* swan(cygne), 
+* rabbit(lapin), 
+* house(maison), 
+* hammer(marteau), 
+* mountain(montagne), 
+* bridge(pont), 
+* fox(renard), 
+* turtle(tortue)
 
 ## Objective
 
 Classify tangram shapes from a live video stream using transfer learning as the main basis of our model.
 
 ## Table Of Contents
--  [Installation and Usage](#Installation-and-Usage)
 -  [Dataset Creation](#Dataset-Creation)
+  - [1. Video recording](#1.-Video-recording)
+  - [2. Image dataset preparation](#2.-Image-dataset-preparation)
+  - [3. Images labeling](#3.-Images-labeling)
+  - [4. Initial Dataset](4.-Initial-Dataset)
+  - [5. Data augmentation](5.-Data-augmentation)
 -  [Model Creation](#Model-Creation)
-  -  [Transfer learning](#Transfer-learning)
+  - [Transfer learning](#Transfer-learning)
 -  [Getting Started](#Getting-Started)
 -  [Command Line Args Reference](#Command-Line-Args-Reference)
 -  [References](#References)
