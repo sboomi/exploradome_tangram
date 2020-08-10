@@ -220,7 +220,7 @@ inception = InceptionV3(weights='imagenet', include_top=False)
 
 ## Results or improvement strategy
 
-![image](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl)
 
 The MobileNetV2 has a good accuracy overall on pictures never shown to the model : overall accuracy is 87%. It can also work quickly at a speed of 5 frames per second, more than enough for the project.
 
