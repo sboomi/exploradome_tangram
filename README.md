@@ -208,14 +208,29 @@ These models can be downloaded and incorporated directly into new models that ex
 
 ## Apply Transfer Learning
 
+**Inception V3**
+```python
+inception = InceptionV3(weights='imagenet', include_top=False)
+```
+
+**MobileNetV2**
 ```python
 base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
                                                include_top=False,
                                                weights='imagenet')
 ```
 
-```python
-inception = InceptionV3(weights='imagenet', include_top=False)
+For both, we added:
+```python    
+global_average_layer = tf.keras.layers.GlobalAveragePooling2D()    
+
+prediction_layer = tf.keras.layers.Dense(12, activation='softmax')    
+
+model = tf.keras.Sequential([
+  base_model,
+  global_average_layer,
+  prediction_layer
+])
 ```
 
 ## Results or improvement strategy
