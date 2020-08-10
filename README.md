@@ -27,11 +27,11 @@ Classify tangram shapes from a live video stream using transfer learning as the 
 
 ## Table Of Contents
 -  [Dataset Creation](#Dataset-Creation)
-   * [1. Video recording](#Video-recording)
-   * [2. Image dataset preparation](#Image-dataset-preparation)
-   * [3. Images labeling](#Images-labeling)
-   * [4. Initial Dataset](#Initial-Dataset)
-   * [5. Data augmentation](#Data-augmentation)
+   * [1.Video recording](#Video-recording)
+   * [2.Image dataset preparation](#Image-dataset-preparation)
+   * [3.Images labeling](#Images-labeling)
+   * [4.Initial Dataset](#Initial-Dataset)
+   * [5.Data augmentation](#Data-augmentation)
 -  [Model Creation](#Model-Creation)
    * [Transfer learning](#Transfer-learning)
    * [Apply Transfer Learning](#Apply-Transfer-Learning)
