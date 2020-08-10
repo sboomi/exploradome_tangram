@@ -237,6 +237,7 @@ model = tf.keras.Sequential([
 **MobileNetV2**
 
 ![image](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl)
+
 ![image](https://drive.google.com/uc?export=view&id=1L4NB8zh11bYCjVsDDtYGixlVvx9-AUPk)
 
 The MobileNetV2 has a good accuracy overall on pictures never shown to the model : overall accuracy is 87%. It can also work quickly at a speed of 5 frames per second, more than enough for the project.
