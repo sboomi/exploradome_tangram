@@ -236,9 +236,9 @@ model = tf.keras.Sequential([
 ## Results or improvement strategy
 **MobileNetV2**
 
-![image](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl)
+![MobileNetV2-image1](https://drive.google.com/uc?export=view&id=1_RqCPHx_AbemYZ_75gaO65Ou1kaoC-fl)
 
-![image](https://drive.google.com/uc?export=view&id=1L4NB8zh11bYCjVsDDtYGixlVvx9-AUPk)
+![MobileNetV2-image2](https://drive.google.com/uc?export=view&id=1L4NB8zh11bYCjVsDDtYGixlVvx9-AUPk)
 
 The MobileNetV2 has a good accuracy overall on pictures never shown to the model : overall accuracy is 87%. It can also work quickly at a speed of 5 frames per second, more than enough for the project.
 
@@ -248,9 +248,9 @@ More training on these classes is required to achieve a more homogeneous accurac
 
 **InceptionV3**
 
-![image](https://drive.google.com/uc?export=view&id=1DBLun2RBatM7uj_SunfMv6_M-SQZT4Kk)
+![InceptionV3-image1](https://drive.google.com/uc?export=view&id=1DBLun2RBatM7uj_SunfMv6_M-SQZT4Kk)
 
-![image](https://drive.google.com/uc?export=view&id=16JgUAb4uHdvIc6bEEd_qwei9Ou7cySZf)
+![InceptionV3-image2](https://drive.google.com/uc?export=view&id=16JgUAb4uHdvIc6bEEd_qwei9Ou7cySZf)
 
 Using InceptionV3 with 30 epochs , we were able to achieve an accuracy of 98% over our test dataset.
 By looking at the confusion matrix,  The classifier has a little trouble with 5 kinds of images. It has a little trouble with Muntain, Rabbit, Swan, cat and the boat. We believe with more images accurate and more training the preduction will be 100% effective on all classes. 
