@@ -11,4 +11,4 @@ from processing import *
 
 # read video and get frame by frame the probabilities to belong to each class
 if __name__ == '__main__':
-    mm.read_video() # do all the job for now
+    mm.read_video()  # do all the job for now
